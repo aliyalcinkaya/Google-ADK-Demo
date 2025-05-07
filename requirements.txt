@@ -1,2 +1,15 @@
 google-adk>=0.1.0
 python-dotenv>=0.19.0 
+langchain-google-vertexai>=0.1.0
+langchain-openai>=0.1.0
+langchain-core>=0.1.0
+langchain-anthropic>=0.1.0
+langchain-community>=0.1.0
+firebase-admin>=5.0.0
+langgraph>=0.1.0
+google-cloud-firestore>=2.0.0
+pandas>=1.0.0
+numpy>=1.0.0
+pytz>=2020.1
+requests>=2.0.0
+base64>=0.1.0
