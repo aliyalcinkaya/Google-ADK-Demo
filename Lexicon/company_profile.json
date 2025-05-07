@@ -1,0 +1,51 @@
+{
+  "company_name": "TechSolutions Inc.",
+  "industry": "Software Development",
+  "founded": 2015,
+  "headquarters": "Boston, MA",
+  "employees": 120,
+  "annual_revenue": "$15.2 million",
+  "growth_rate": "22% year-over-year",
+  "core_products": [
+    {
+      "name": "DevAssist Pro",
+      "description": "AI-powered development assistant",
+      "launch_year": 2018,
+      "revenue_share": "45%"
+    },
+    {
+      "name": "CloudSync",
+      "description": "Enterprise cloud integration platform",
+      "launch_year": 2020,
+      "revenue_share": "35%"
+    },
+    {
+      "name": "SecureVault",
+      "description": "Secure data storage and management",
+      "launch_year": 2021,
+      "revenue_share": "20%"
+    }
+  ],
+  "target_markets": [
+    "Enterprise Software Companies",
+    "Financial Services",
+    "Healthcare"
+  ],
+  "key_competitors": [
+    "CodeMasters Ltd.",
+    "CloudWorks Inc.",
+    "DataFlow Systems"
+  ],
+  "business_goals": {
+    "short_term": [
+      "Increase DevAssist Pro market share by 15%",
+      "Launch mobile version of CloudSync",
+      "Expand sales team by 30%"
+    ],
+    "long_term": [
+      "Enter European market by Q3 2023",
+      "Achieve $30 million annual revenue by 2025",
+      "Launch two new product lines"
+    ]
+  }
+} 

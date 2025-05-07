@@ -1,0 +1,313 @@
+{
+  "entityType": "event",
+  "name": "Order Partially Refunded",
+  "schemaJson": {
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "The order_partially_refunded event logs when the order is edited to only refund part of the order",
+    "required": [
+      "distinct_id",
+      "$insert_id"
+    ],
+    "additionalProperties": true,
+    "metadata": {
+      "com.mixpanel": {
+        "tags": [
+          "Server-side",
+          "Vendo"
+        ],
+        "displayName": "Order Partially Refunded",
+        "hidden": false,
+        "dropped": false,
+        "owners": []
+      }
+    },
+    "properties": {
+      "$insert_id": {
+        "type": "string",
+        "description": "A unique identifier for the event, used for deduplication. The client-side events values are set by Shopify",
+        "examples": [
+          "49b71cd2-295b-476a-a345-0eb50bd13b57"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Insert ID"
+          }
+        }
+      },
+      "order_id": {
+        "type": "string",
+        "description": "The order ID is assigned by Shopify. This is the displayed order ID that shows in the store admin",
+        "examples": [
+          "5363269"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Order ID"
+          }
+        }
+      },
+      "shopify_order_id": {
+        "type": "string",
+        "description": "The Shopify Order ID is a global order ID set by Shopify",
+        "examples": [
+          "5363269534010"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Shopify Order ID"
+          }
+        }
+      },
+      "currency": {
+        "type": "string",
+        "description": "The three-letter code that represents the currency, for example, USD. Supported codes include standard ISO 4217 codes, legacy codes, and non-standard codes",
+        "examples": [
+          "USD"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Currency"
+          }
+        }
+      },
+      "confirmed": {
+        "type": "boolean",
+        "description": "Status or the orders if it was confirmed or not",
+        "examples": [
+          "true"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Confirmed"
+          }
+        }
+      },
+      "payment_gateway": {
+        "type": "string",
+        "description": "What user use to pay for the order",
+        "examples": [
+          "manual"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Payment Gateway"
+          }
+        }
+      },
+      "products": {
+        "type": "array",
+        "description": "A list of line item objects, each one containing information about an item in the checkout",
+        "examples": [
+          [
+            {
+              "product_id": 1234,
+              "title": "product title",
+              "sku": "123-abc",
+              "price": 50.15
+            }
+          ]
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Products"
+          }
+        }
+      },
+      "cart_subtotal_amount": {
+        "type": "number",
+        "description": "The price at checkout before duties, shipping, and taxes",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Cart Subtotal Amount"
+          }
+        }
+      },
+      "cart_total_amount": {
+        "type": "number",
+        "description": "The sum of all the items in the checkout, including duties, taxes, and discounts",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Cart Total Amount"
+          }
+        }
+      },
+      "tax_amount": {
+        "type": "number",
+        "description": "The sum of all the taxes applied to the line items and shipping lines in the checkout",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Tax Amount"
+          }
+        }
+      },
+      "total_discounts": {
+        "type": "number",
+        "description": "The total amount of all discounts applied to the order",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Total Discounts"
+          }
+        }
+      },
+      "shipping_amount": {
+        "type": "number",
+        "description": "Total shipping cost",
+        "examples": [
+          6.99
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Shipping Amount"
+          }
+        }
+      },
+      "refund_amount": {
+        "type": "string",
+        "description": "The amount refunded",
+        "examples": [
+          20.50
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Refund Amount"
+          }
+        }
+      },
+
+      "$source": {
+        "type": "string",
+        "description": "The source of where the data is coming from",
+        "examples": [
+          "Vendo - Shopify Data Intelligence"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Source"
+          }
+        }
+      },
+      "payment_getaway_names": {
+        "type": "array",
+        "description": "The name of payment gateway used",
+        "examples": [
+          [
+            "shopflo"
+          ]
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Payment Getaway Names"
+          }
+        }
+      },
+      "$import": {
+        "type": "boolean",
+        "description": "To determine if this a server side event or not",
+        "examples": [
+          true
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Import"
+          }
+        }
+      },
+      "utm_source": {
+        "type": "string",
+        "description": "The last seen attributed source value",
+        "examples": [
+          "google, linkedin, facebook"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Source"
+          }
+        }
+      },
+      "utm_medium": {
+        "type": "string",
+        "description": "The last seen attributed medium value",
+        "examples": [
+          "blog, social, organic"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Medium"
+          }
+        }
+      },
+      "utm_campaign": {
+        "type": "string",
+        "description": "The last seen attributed campaign value",
+        "examples": [
+          "summer-sale, new-product-release"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Campaign"
+          }
+        }
+      },
+      "utm_content": {
+        "type": "string",
+        "description": "The last seen attributed content value",
+        "examples": [
+          "pricing, sales"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Content"
+          }
+        }
+      },
+      "utm_term": {
+        "type": "string",
+        "description": "The last seen attributed term value",
+        "examples": [
+          "sunscreen, vegan-shampoo"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Term"
+          }
+        }
+      },
+      "event_type": {
+        "type": "string",
+        "description": "Indicates whether an event is a standard or a custom event",
+        "examples": [
+          "standard, custom"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Event Type"
+          }
+        }
+      },
+      "vendo_tracking_version": {
+        "type": "string",
+        "description": "Vendo tracking version",
+        "examples": [
+          "1.2.1"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Vendo Tracking Version"
+          }
+        }
+      }
+    }
+  }
+}

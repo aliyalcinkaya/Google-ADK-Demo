@@ -1,0 +1,335 @@
+{
+  "entityType": "event",
+  "name": "Checkout Shipping Info Submitted",
+  "schemaJson": {
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "The checkout_shipping_info_submitted event logs an instance where the buyer chooses a shipping rate. This event is only available in checkouts where checkout extensibility for customizations is enabled",
+    "required": [
+      "distinct_id",
+      "$insert_id"
+    ],
+    "additionalProperties": true,
+    "metadata": {
+      "com.mixpanel": {
+        "tags": [
+          "Client-Side",
+          "Vendo"
+        ],
+        "displayName": "Checkout Shipping Info Submitted",
+        "hidden": false,
+        "dropped": false,
+        "owners": []
+      }
+    },
+    "properties": {
+      "$insert_id": {
+        "type": "string",
+        "description": "A unique identifier for the event, used for deduplication. The client-side events values are set by Shopify",
+        "examples": [
+          "49b71cd2-295b-476a-a345-0eb50bd13b57"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Insert ID"
+          }
+        }
+      },
+      "checkout_attributes": {
+        "type": "array",
+        "description": "A list of attributes accumulated throughout the checkout process",
+        "examples": [
+          [
+            {
+              "name": "landing_page",
+              "value": "/"
+            },
+            {
+              "name": "cart_token",
+              "value": "123-abc"
+            }
+          ]
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Checkout Attributes"
+          }
+        }
+      },
+      "currency": {
+        "type": "string",
+        "description": "The three-letter code that represents the currency, for example, USD. Supported codes include standard ISO 4217 codes, legacy codes, and non-standard codes",
+        "examples": [
+          "USD"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Currency"
+          }
+        }
+      },
+      "order_id": {
+        "type": "string",
+        "description": "The order ID is assigned by Shopify. This is the displayed order ID that shows in the store admin",
+        "examples": [
+          "5363269"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Order ID"
+          }
+        }
+      },
+      "checkout_token": {
+        "type": "string",
+        "description": "A unique identifier for a particular checkout",
+        "examples": [
+          "57a0a97bf029929066b2a01b5eadd9d1"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Checkout Token"
+          }
+        }
+      },
+      "shopify_client_id": {
+        "type": "string",
+        "description": "The clientside ID assigned by Shopify",
+        "examples": [
+          "d606bc45-b9fa-4fa5-b038-488125ab7264"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Shopify Client ID"
+          }
+        }
+      },
+      "shipping_address": {
+        "type": "object",
+        "description": "The shipping address to where the line items will be shipped",
+        "examples": [
+          {
+            "first_name": "My User",
+            "address1": "Address",
+            "phone": "1234567",
+            "city": "City",
+            "zip": "123456",
+            "province": "NY",
+            "country": "US",
+            "last_name": "LastName",
+            "address2": "Address2",
+            "company": null,
+            "latitude": null,
+            "longitude": null,
+            "name": "Name",
+            "country_code": "US",
+            "province_code": "NY"
+          }
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Shipping Address"
+          }
+        }
+      },
+      "products": {
+        "type": "array",
+        "description": "A list of line item objects, each one containing information about an item in the checkout",
+        "examples": [
+          [
+            {
+              "product_id": 1234,
+              "title": "product title",
+              "sku": "123-abc",
+              "price": 50.15
+            }
+          ]
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Products"
+          }
+        }
+      },
+      "cart_subtotal_amount": {
+        "type": "number",
+        "description": "The price at checkout before duties, shipping, and taxes",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Cart Subtotal Amount"
+          }
+        }
+      },
+      "cart_total_amount": {
+        "type": "number",
+        "description": "The sum of all the items in the checkout, including duties, taxes, and discounts",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Cart Total Amount"
+          }
+        }
+      },
+      "email": {
+        "type": "string",
+        "description": "The email attached to this checkout",
+        "examples": [
+          "test.user@email.com"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Email"
+          }
+        }
+      },
+      "page_title": {
+        "type": "string",
+        "description": "The title of the page",
+        "examples": [
+          "Products – gamanalytics"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Page Title"
+          }
+        }
+      },
+      "path_name": {
+        "type": "string",
+        "description": "The path of the URL",
+        "examples": [
+          "/collections/all"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Path Name"
+          }
+        }
+      },
+      "tax_amount": {
+        "type": "number",
+        "description": "The sum of all the taxes applied to the line items and shipping lines in the checkout",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Tax Amount"
+          }
+        }
+      },
+      "shipping_amount": {
+        "type": "number",
+        "description": "Total shipping cost",
+        "examples": [
+          6.99
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Shipping Amount"
+          }
+        }
+      },
+      "$source": {
+        "type": "string",
+        "description": "The source of where the data is coming from",
+        "examples": [
+          "Vendo - Shopify Data Intelligence"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Source"
+          }
+        }
+      },
+      "phone": {
+        "type": "string",
+        "description": "The phone number of the address",
+        "examples": [
+          "+14253874474"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Phone"
+          }
+        }
+      },
+      "utm_source": {
+        "type": "string",
+        "description": "The last seen attributed source value",
+        "examples": [
+          "google, linkedin, facebook"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Source"
+          }
+        }
+      },
+      "utm_medium": {
+        "type": "string",
+        "description": "The last seen attributed medium value",
+        "examples": [
+          "blog, social, organic"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Medium"
+          }
+        }
+      },
+      "utm_campaign": {
+        "type": "string",
+        "description": "The last seen attributed campaign value",
+        "examples": [
+          "summer-sale, new-product-release"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Campaign"
+          }
+        }
+      },
+      "utm_content": {
+        "type": "string",
+        "description": "The last seen attributed content value",
+        "examples": [
+          "pricing, sales"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Content"
+          }
+        }
+      },
+      "utm_term": {
+        "type": "string",
+        "description": "The last seen attributed term value",
+        "examples": [
+          "sunscreen, vegan-shampoo"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Term"
+          }
+        }
+      },
+      "event_type": {
+        "type": "string",
+        "description": "Indicates whether an event is a standard or a custom event",
+        "examples": [
+          "standard, custom"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Event Type"
+          }
+        }
+      }
+    }
+  }
+}

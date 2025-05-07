@@ -1,0 +1,412 @@
+{
+  "entityType": "event",
+  "name": "Cart Abandoned",
+  "schemaJson": {
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "The cart_abandoned event logs an instance where a abandons their cart",
+    "required": [
+      "distinct_id",
+      "$insert_id"
+    ],
+    "additionalProperties": true,
+    "metadata": {
+      "com.mixpanel": {
+        "tags": [
+          "Server-side",
+          "Vendo"
+        ],
+        "displayName": "Cart Abandoned",
+        "hidden": false,
+        "dropped": false,
+        "owners": []
+      }
+    },
+    "properties": {
+      "$insert_id": {
+        "type": "string",
+        "description": "A unique identifier for the event, used for deduplication. The client-side events values are set by Shopify",
+        "examples": [
+          "49b71cd2-295b-476a-a345-0eb50bd13b57"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Insert ID"
+          }
+        }
+      },
+      "checkout_id": {
+        "type": "string",
+        "description": "The unique id of the checkout process",
+        "examples": [
+          "29563359395886"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Checkout ID"
+          }
+        }
+      },
+      "checkout_token": {
+        "type": "string",
+        "description": "A unique identifier for a particular checkout",
+        "examples": [
+          "f2497b88ed60f51f6f3698bf7bccd74f"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Checkout Token"
+          }
+        }
+      },
+      "email": {
+        "type": "string",
+        "description": "The email attached to this checkout",
+        "examples": [
+          "test.user@email.com"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Email"
+          }
+        }
+      },
+      "currency": {
+        "type": "string",
+        "description": "The three-letter code that represents the currency, for example, USD. Supported codes include standard ISO 4217 codes, legacy codes, and non-standard codes",
+        "examples": [
+          "USD"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Currency"
+          }
+        }
+      },
+      "cart_subtotal_amount": {
+        "type": "number",
+        "description": "The price at checkout before duties, shipping, and taxes",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Cart Subtotal Amount"
+          }
+        }
+      },
+      "total_discounts": {
+        "type": "number",
+        "description": "The total amount of all discounts applied to the order",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Total Discounts"
+          }
+        }
+      },
+      "cart_total_amount": {
+        "type": "number",
+        "description": "The sum of all the items in the checkout, including duties, taxes, and discounts",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Cart Total Amount"
+          }
+        }
+      },
+      "tax_amount": {
+        "type": "number",
+        "description": "The sum of all the taxes applied to the line items and shipping lines in the checkout",
+        "examples": [
+          100.25
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Tax Amount"
+          }
+        }
+      },
+      "billing_address": {
+        "type": "object",
+        "description": "The billing address where the order will be billed to",
+        "examples": [
+          {
+            "first_name": "My User",
+            "address1": "Address",
+            "phone": "1234567",
+            "city": "City",
+            "zip": "123456",
+            "province": "NY",
+            "country": "US",
+            "last_name": "LastName",
+            "address2": "Address2",
+            "company": null,
+            "latitude": null,
+            "longitude": null,
+            "name": "Name",
+            "country_code": "US",
+            "province_code": "NY"
+          }
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Billing Address"
+          }
+        }
+      },
+      "shipping_address": {
+        "type": "object",
+        "description": "The shipping address to where the line items will be shipped",
+        "examples": [
+          {
+            "first_name": "My User",
+            "address1": "Address",
+            "phone": "1234567",
+            "city": "City",
+            "zip": "123456",
+            "province": "NY",
+            "country": "US",
+            "last_name": "LastName",
+            "address2": "Address2",
+            "company": null,
+            "latitude": null,
+            "longitude": null,
+            "name": "Name",
+            "country_code": "US",
+            "province_code": "NY"
+          }
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Shipping Address"
+          }
+        }
+      },
+      "abandoned_checkout_url": {
+        "type": "string",
+        "description": "Link to the cart that was abandoned",
+        "examples": [
+          "https://www.my-shop.com/checkout-url"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Abandoned Checkout URL"
+          }
+        }
+      },
+      "buyer_accepts_marketing": {
+        "type": "boolean",
+        "description": "Buyer has consented to receiving marketing email",
+        "examples": [
+          true
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Buyer Accepts Marketing"
+          }
+        }
+      },
+      "source_name": {
+        "type": "string",
+        "description": "The source of the abandonment",
+        "examples": [
+          "web"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Source Name"
+          }
+        }
+      },
+      "checkout_attributes": {
+        "type": "array",
+        "description": "A list of attributes accumulated throughout the checkout process",
+        "examples": [
+          [
+            {
+              "name": "landing_page",
+              "value": "/"
+            },
+            {
+              "name": "cart_token",
+              "value": "123-abc"
+            }
+          ]
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Checkout Attributes"
+          }
+        }
+      },
+      "products": {
+        "type": "array",
+        "description": "A list of line item objects, each one containing information about an item in the checkout",
+        "examples": [
+          [
+            {
+              "product_id": 1234,
+              "title": "product title",
+              "sku": "123-abc",
+              "price": 50.15
+            }
+          ]
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Products"
+          }
+        }
+      },
+      "$ignore_time": {
+        "type": "boolean",
+        "description": "Ignore Time",
+        "examples": [
+          true
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Ignore Time"
+          }
+        }
+      },
+      "$source": {
+        "type": "string",
+        "description": "The source of where the data is coming from",
+        "examples": [
+          "Vendo - Shopify Data Intelligence"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Source"
+          }
+        }
+      },
+      "$import": {
+        "type": "boolean",
+        "description": "To determine if this a server side event or not",
+        "examples": [
+          true
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Import"
+          }
+        }
+      },
+      "utm_source": {
+        "type": "string",
+        "description": "The last seen attributed source value",
+        "examples": [
+          "google, linkedin, facebook"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Source"
+          }
+        }
+      },
+      "utm_medium": {
+        "type": "string",
+        "description": "The last seen attributed medium value",
+        "examples": [
+          "blog, social, organic"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Medium"
+          }
+        }
+      },
+      "utm_campaign": {
+        "type": "string",
+        "description": "The last seen attributed campaign value",
+        "examples": [
+          "summer-sale, new-product-release"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Campaign"
+          }
+        }
+      },
+      "utm_content": {
+        "type": "string",
+        "description": "The last seen attributed content value",
+        "examples": [
+          "pricing, sales"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Content"
+          }
+        }
+      },
+      "utm_term": {
+        "type": "string",
+        "description": "The last seen attributed term value",
+        "examples": [
+          "sunscreen, vegan-shampoo"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Term"
+          }
+        }
+      },
+      "event_type": {
+        "type": "string",
+        "description": "Indicates whether an event is a standard or a custom event",
+        "examples": [
+          "standard, custom"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Event Type"
+          }
+        }
+      },
+      "custom_order_attributes": {
+        "type": "string",
+        "description": "A list of details that have been added to the order.",
+        "examples": [
+          [
+            {
+              "key": "utm_source",
+              "value": "google"
+            },
+            {
+              "key": "utm_campaign",
+              "value": "google"
+            },
+            {
+              "key": "customer_type",
+              "value": "new"
+            }
+          ]
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Custom Order Attributes"
+          }
+        }
+      },
+      "vendo_tracking_version": {
+        "type": "string",
+        "description": "Vendo tracking version",
+        "examples": [
+          "1.2.1"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Vendo Tracking Version"
+          }
+        }
+      }
+    }
+  }
+}

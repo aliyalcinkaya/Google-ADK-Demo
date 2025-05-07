@@ -1,0 +1,273 @@
+{
+  "entityType": "event",
+  "name": "Ad Geo Data",
+  "schemaJson": {
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "This event contains paid ads data from ad platforms at a campaign level, segmented by region.",
+    "required": ["$insert_id"],
+    "additionalProperties": true,
+    "metadata": {
+      "com.mixpanel": {
+        "tags": ["Server-side", "Vendo"],
+        "displayName": "Ad Geo Data",
+        "hidden": false,
+        "dropped": false,
+        "owners": []
+      }
+    },
+    "properties": {
+      "$ad_platform": {
+        "type": "string",
+        "description": "The name of the advertising platform.",
+        "examples": ["Google Ads, Meta Ads"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Ad Platform"
+          }
+        }
+      },
+      "$insert_id": {
+        "type": "string",
+        "description": "A unique identifier for the event, used for deduplication.",
+        "examples": ["49b71cd2-295b-476a-a345-0eb50bd13b57"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Insert ID"
+          }
+        }
+      },
+      "$region": {
+        "type": "string",
+        "description": "The region (state or province) of the user parsed from the IP property or the Latitude and Longitude properties.",
+        "examples": [],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Region"
+          }
+        }
+      },
+      "$source": {
+        "type": "string",
+        "description": "Name of the source where the data syncs. This will be Vendo data.",
+        "examples": ["Vendo Data"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Source"
+          }
+        }
+      },
+      "account_id": {
+        "type": "string",
+        "description": "id of the ad account",
+        "examples": ["23204565132"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Advertising Account ID"
+          }
+        }
+      },
+      "account_name": {
+        "type": "string",
+        "description": "name of the ad account, as displayed via API",
+        "examples": ["Vendo Ads Account"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Advertising Account Name"
+          }
+        }
+      },
+
+      "campaign_advertising_channel_type": {
+        "type": "string",
+        "description": "The type of advertising channel.",
+        "examples": ["Search"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Campaign Advertising Channel Type"
+          }
+        }
+      },
+      "campaign_id": {
+        "type": "string",
+        "description": "ID of the campaign set by the advertising platform.",
+        "examples": ["1234567890"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Campaign ID"
+          }
+        }
+      },
+      "campaign_name": {
+        "type": "string",
+        "description": "Name of the campaign as it appears in the advertising platform.",
+        "examples": ["Summer Sale Campaign"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Campaign Name"
+          }
+        }
+      },
+      "clicks": {
+        "type": "number",
+        "description": "Number of clicks the ad received.",
+        "examples": [100],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Clicks"
+          }
+        }
+      },
+      "conversion_value": {
+        "type": "number",
+        "description": "The value associated with the conversion",
+        "examples": [500],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Conversion Value"
+          }
+        }
+      },
+      "conversions": {
+        "type": "number",
+        "description": "Number of conversions",
+        "examples": [10],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Conversions"
+          }
+        }
+      },
+      "cost_reporting": {
+        "type": "number",
+        "description": "The advertsing cost converted to the reporting currency in Mixpanel",
+        "examples": [],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Cost Reporting"
+          }
+        }
+      },
+      "cost_source": {
+        "type": "number",
+        "description": "The advertising cost in the source currency of the advertising platform.",
+        "examples": [],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Cost Source"
+          }
+        }
+      },
+      "currency_reporting": {
+        "type": "string",
+        "description": "The reporting currency in Mixpanel.",
+        "examples": ["AUD"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Currency Reporting"
+          }
+        }
+      },
+      "currency_source": {
+        "type": "string",
+        "description": "The source currency of the advertising platform.",
+        "examples": ["AUD"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Currency Source"
+          }
+        }
+      },
+      "device_category": {
+        "type": "string",
+        "description": "The device category of the ad.",
+        "examples": [],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Device Category"
+          }
+        }
+      },
+      "impressions": {
+        "type": "number",
+        "description": "Number of impressions the ad received.",
+        "examples": [1000],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Impressions"
+          }
+        }
+      },
+      "job_id": {
+        "type": "string",
+        "description": "The ID of the job that created the ad. This is created by Vendo. Used for data verification purposes.",
+        "examples": [],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Job Id [Vendo]"
+          }
+        }
+      },
+      "utm_campaign": {
+        "type": "string",
+        "description": "The value of the UTM campaign parameter.",
+        "examples": ["campaign x"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Campaign"
+          }
+        }
+      },
+      "utm_content": {
+        "type": "string",
+        "description": "The value of the UTM content parameter.",
+        "examples": ["october_promo"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Content"
+          }
+        }
+      },
+      "utm_medium": {
+        "type": "string",
+        "description": "The value of the UTM medium parameter.",
+        "examples": ["cpc"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Medium"
+          }
+        }
+      },
+      "utm_source": {
+        "type": "string",
+        "description": "The value of the UTM source parameter.",
+        "examples": ["facebook"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Source"
+          }
+        }
+      },
+      "utm_term": {
+        "type": "string",
+        "description": "The value of the UTM term parameter.",
+        "examples": ["nike_air, red_shoes"],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Term"
+          }
+        }
+      },
+      "vendo_tracking_version": {
+        "type": "string",
+        "description": "The version of Vendo tracking being used",
+        "examples": [],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Vendo Tracking Version",
+            "hidden": true
+
+          }
+        }
+      }
+    }
+  }}

@@ -1,0 +1,381 @@
+{
+  "entityType": "profile",
+  "name": "$user",
+  "schemaJson": {
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "Tracked when an order is received",
+    "required": [
+    ],
+    "additionalProperties": true,
+    "metadata": {},
+    "properties": {
+      "$ignore_time": {
+        "type": "boolean",
+        "metadata": {
+          "com.mixpanel": {
+            "hidden": true
+          }
+        }
+      },
+      "user_id": {
+        "type": "string",
+        "description": "The client-side ID of the customer, provided by Shopify",
+        "examples": [
+          "5816460574766"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "User ID",
+            "hidden": false
+          }
+        }
+      },
+      "customer_tags": {
+        "type": "array",
+        "description": "The tags associated with the customer",
+        "examples": [
+          [
+            "repeat-order",
+            "special-customer"
+          ]
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Customer Tags",
+            "hidden": false
+          }
+        }
+      },
+      "email_marketing_consent_opt_in_level": {
+        "type": "string",
+        "description": "Shows the consent opt in level of users",
+        "examples": [
+          "single_opt_in"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Email Marketing Consent Opt in Level",
+            "hidden": false
+          }
+        }
+      },
+      "email_marketing_consent_state": {
+        "type": "string",
+        "description": "Whether user is subscribed or not to our email marketing",
+        "examples": [
+          "subscribed"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Email Marketing Consent State",
+            "hidden": false
+          }
+        }
+      },
+      "first_order_date": {
+        "type": "string",
+        "format": "date-time",
+        "description": "The date of the first paid order of the customers",
+        "examples": [
+          "Thu, Aug 31, 2023 8:19 PM"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "First Order Date",
+            "hidden": false
+          }
+        }
+      },
+      "last_order_date": {
+        "type": "string",
+        "format": "date-time",
+        "description": "The date of the last paid order of the customer",
+        "examples": [
+          "Thu, Aug 31, 2023 8:19 PM"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Last Order Date",
+            "hidden": false
+          }
+        }
+      },
+      "shopify_customer_id": {
+        "type": "string",
+        "description": "Shopify Customer ID",
+        "examples": [
+          "6359703453860"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Shopify Customer ID",
+            "hidden": false
+          }
+        }
+      },
+      "shopify_customer_notes": {
+        "type": "string",
+        "description": "Admin entered customer notes",
+        "examples": [
+          "This customer is awesome"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Shopify Customer Notes",
+            "hidden": false
+          }
+        }
+      },
+      "tax_exempt": {
+        "type": "boolean",
+        "description": "Whether customer is exempt from tax or not",
+        "examples": [
+          true
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Tax Exempt",
+            "hidden": false
+          }
+        }
+      },
+      "total_spent": {
+        "type": "number",
+        "description": "Total amount spent by customer",
+        "examples": [
+          199.95
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Total Spent",
+            "hidden": false
+          }
+        }
+      },
+      "verified_email": {
+        "type": "boolean",
+        "description": "Whether the customers emails verified or not",
+        "examples": [
+          true
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Verified Email",
+            "hidden": false
+          }
+        }
+      },
+      "order_count": {
+        "type": "number",
+        "description": "Number of orders that the customer have placed",
+        "examples": [
+          10
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Order Count",
+            "hidden": false
+          }
+        }
+      },
+      "shipping_address": {
+        "type": "array",
+        "description": "Latest shipping address of the customer",
+        "examples": [
+          {
+            "first_name": "My User",
+            "address1": "Address",
+            "phone": "1234567",
+            "city": "City",
+            "zip": "123456",
+            "province": "NY",
+            "country": "US",
+            "last_name": "LastName",
+            "address2": "Address2",
+            "company": null,
+            "latitude": null,
+            "longitude": null,
+            "name": "Name",
+            "country_code": "US",
+            "province_code": "NY"
+          }
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Shipping Address",
+            "hidden": true
+          }
+        }
+      },
+      "first_seen": {
+        "type": "string",
+        "format": "date-time",
+        "description": "The first time user visits the website",
+        "examples": [
+          "Thu, Aug 31, 2023 8:19 PM"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "First Seen Date",
+            "hidden": false
+          }
+        }
+      },
+      "initial_utm_source": {
+        "type": "string",
+        "description": "The utm_source value from the first UTM parameters ever seen for a customer when they arrive at your site",
+        "examples": [
+          "google, linkedin, facebook"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Initial UTM Source",
+            "hidden": false
+          }
+        }
+      },
+      "initial_utm_medium": {
+        "type": "string",
+        "description": "The utm_medium value from the first UTM parameters ever seen for a customer when they arrive at your site",
+        "examples": [
+          "blog, social, organic"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Initial UTM Medium",
+            "hidden": false
+          }
+        }
+      },
+      "initial_utm_campaign": {
+        "type": "string",
+        "description": "The utm_campaign value from the first UTM parameters ever seen for a customer when they arrive at your site",
+        "examples": [
+          "summer-sale, new-product-release"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Initial UTM Campaign",
+            "hidden": false
+          }
+        }
+      },
+      "initial_utm_content": {
+        "type": "string",
+        "description": "The utm_content value from the first UTM parameters ever seen for a customer when they arrive at your site",
+        "examples": [
+          "pricing, sales"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Initial UTM Content",
+            "hidden": false
+          }
+        }
+      },
+      "initial_utm_term": {
+        "type": "string",
+        "description": "The utm_term value from the first UTM parameters ever seen for a customer when they arrive at your site",
+        "examples": [
+          "sunscreen, vegan-shampoo"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Initial UTM Term",
+            "hidden": false
+          }
+        }
+      },
+      "utm_source": {
+        "type": "string",
+        "description": "Identifies which site sent the traffic",
+        "examples": [
+          "google, linkedin, facebook"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Source",
+            "hidden": false
+          }
+        }
+      },
+      "utm_medium": {
+        "type": "string",
+        "description": "Identifies what type of link sent traffic",
+        "examples": [
+          "blog, social, organic"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Medium",
+            "hidden": false
+          }
+        }
+      },
+      "utm_campaign": {
+        "type": "string",
+        "description": "Identifies which promotion sent traffic",
+        "examples": [
+          "summer-sale, new-product-release"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Campaign",
+            "hidden": false
+          }
+        }
+      },
+      "utm_content": {
+        "type": "string",
+        "description": "Identifies the exact element on your ad that was clicked. For example, if you have two call-to-actions within the same email message with one being a video_ad and another being a green_banner ad",
+        "examples": [
+          "pricing, sales"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Content",
+            "hidden": false
+          }
+        }
+      },
+      "utm_term": {
+        "type": "string",
+        "description": "Identifies paid keywords driving traffic",
+        "examples": [
+          "sunscreen, vegan-shampoo"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Term",
+            "hidden": false
+          }
+        }
+      },
+      "marketing_state": {
+        "type": "string",
+        "description": "The current email marketing state for the customer",
+        "examples": [
+          "disabled, enabled"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "State",
+            "hidden": false
+          }
+        }
+      },
+      "event_type": {
+        "type": "string",
+        "description": "Indicates whether an event is a standard or a custom event",
+        "examples": [
+          "standard, custom"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Event Type"
+          }
+        }
+      }
+    }
+  }
+}

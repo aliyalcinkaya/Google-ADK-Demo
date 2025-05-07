@@ -1,0 +1,202 @@
+{
+  "entityType": "event",
+  "name": "Product Added To Cart",
+  "schemaJson": {
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "The product_added_to_cart event logs an instance where a buyer added a product to the cart. This event is available on the product page",
+    "required": [
+      "distinct_id",
+      "$insert_id"
+    ],
+    "additionalProperties": true,
+    "metadata": {
+      "com.mixpanel": {
+        "tags": [
+          "Client-Side",
+          "Vendo"
+        ],
+        "displayName": "Product Added To Cart",
+        "hidden": false,
+        "dropped": false,
+        "owners": []
+      }
+    },
+    "properties": {
+      "$insert_id": {
+        "type": "string",
+        "description": "A unique identifier for the event, used for deduplication. The client-side events values are set by Shopify",
+        "examples": [
+          "49b71cd2-295b-476a-a345-0eb50bd13b57"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Insert ID"
+          }
+        }
+      },
+      "amount": {
+        "type": "number",
+        "description": "Used for the monetary amount of the object",
+        "examples": [
+          100
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Amount"
+          }
+        }
+      },
+      "page_title": {
+        "type": "string",
+        "description": "The title of the page",
+        "examples": [
+          "Products – gamanalytics"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Page Title"
+          }
+        }
+      },
+      "quantity": {
+        "type": "number",
+        "description": "Quantity added to cart",
+        "examples": [
+          1
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Quantity"
+          }
+        }
+      },
+      "currency": {
+        "type": "string",
+        "description": "The three-letter code that represents the currency, for example, USD. Supported codes include standard ISO 4217 codes, legacy codes, and non-standard codes",
+        "examples": [
+          "USD"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Currency"
+          }
+        }
+      },
+      "path_name": {
+        "type": "string",
+        "description": "The path of the URL",
+        "examples": [
+          "/collections/all"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Path Name"
+          }
+        }
+      },
+      "products": {
+        "type": "array",
+        "description": "A list of line item objects, each one containing information about an item in the checkout",
+        "examples": [
+          [
+            {
+              "product_id": 1234,
+              "title": "product title",
+              "sku": "123-abc",
+              "price": 50.15
+            }
+          ]
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Products"
+          }
+        }
+      },
+      "$source": {
+        "type": "string",
+        "description": "The source of where the data is coming from",
+        "examples": [
+          "Vendo - Shopify Data Intelligence"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Source"
+          }
+        }
+      },
+      "utm_source": {
+        "type": "string",
+        "description": "The last seen attributed source value",
+        "examples": [
+          "google, linkedin, facebook"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Source"
+          }
+        }
+      },
+      "utm_medium": {
+        "type": "string",
+        "description": "The last seen attributed medium value",
+        "examples": [
+          "blog, social, organic"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Medium"
+          }
+        }
+      },
+      "utm_campaign": {
+        "type": "string",
+        "description": "The last seen attributed campaign value",
+        "examples": [
+          "summer-sale, new-product-release"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Campaign"
+          }
+        }
+      },
+      "utm_content": {
+        "type": "string",
+        "description": "The last seen attributed content value",
+        "examples": [
+          "pricing, sales"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Content"
+          }
+        }
+      },
+      "utm_term": {
+        "type": "string",
+        "description": "The last seen attributed term value",
+        "examples": [
+          "sunscreen, vegan-shampoo"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "UTM Term"
+          }
+        }
+      },
+      "event_type": {
+        "type": "string",
+        "description": "Indicates whether an event is a standard or a custom event",
+        "examples": [
+          "standard, custom"
+        ],
+        "metadata": {
+          "com.mixpanel": {
+            "displayName": "Event Type"
+          }
+        }
+      }
+    }
+  }
+}

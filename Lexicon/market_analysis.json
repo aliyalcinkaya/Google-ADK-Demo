@@ -1,0 +1,109 @@
+{
+  "market_overview": {
+    "global_software_market": {
+      "size": "$1.2 trillion",
+      "growth_rate": "5.3% annually",
+      "trends": [
+        "Shift to cloud-based solutions",
+        "Increasing demand for AI integration",
+        "Growing cybersecurity concerns"
+      ]
+    },
+    "enterprise_software_segment": {
+      "size": "$457 billion",
+      "growth_rate": "8.2% annually",
+      "key_drivers": [
+        "Digital transformation initiatives",
+        "Remote work infrastructure",
+        "Automation of business processes"
+      ]
+    }
+  },
+  "target_segment_analysis": [
+    {
+      "segment": "Enterprise Software Companies",
+      "market_size": "$85 billion",
+      "growth_projection": "11.5% CAGR through 2026",
+      "pain_points": [
+        "Integration with legacy systems",
+        "Talent acquisition and retention",
+        "Rapid technology changes requiring constant updates"
+      ],
+      "opportunity_size": "High"
+    },
+    {
+      "segment": "Financial Services",
+      "market_size": "$103 billion",
+      "growth_projection": "9.8% CAGR through 2026",
+      "pain_points": [
+        "Regulatory compliance challenges",
+        "Security vulnerabilities",
+        "Complex data management needs"
+      ],
+      "opportunity_size": "Very High"
+    },
+    {
+      "segment": "Healthcare",
+      "market_size": "$78 billion",
+      "growth_projection": "12.3% CAGR through 2026",
+      "pain_points": [
+        "HIPAA compliance requirements",
+        "Interoperability between systems",
+        "Patient data security"
+      ],
+      "opportunity_size": "Medium-High"
+    }
+  ],
+  "competitive_landscape": {
+    "market_leaders": [
+      {
+        "name": "TechGiant Solutions",
+        "market_share": "22%",
+        "strengths": ["Brand recognition", "Extensive product suite", "Large customer base"],
+        "weaknesses": ["Less agile", "Higher pricing", "Slower innovation cycles"]
+      },
+      {
+        "name": "InnovateSoft",
+        "market_share": "17%",
+        "strengths": ["Cutting-edge technology", "Strong R&D", "Premium positioning"],
+        "weaknesses": ["Limited market reach", "Higher implementation costs"]
+      }
+    ],
+    "our_position": {
+      "current_market_share": "3.5%",
+      "competitive_advantages": [
+        "Superior AI capabilities",
+        "More flexible pricing model",
+        "Better customer support response times"
+      ],
+      "vulnerabilities": [
+        "Lower brand recognition",
+        "Smaller sales force",
+        "Less comprehensive product portfolio"
+      ]
+    }
+  },
+  "growth_opportunities": [
+    {
+      "opportunity": "AI-enhanced product automation",
+      "market_potential": "$45 billion by 2025",
+      "competitive_intensity": "Medium",
+      "resource_requirements": "High",
+      "recommendation": "High priority investment area"
+    },
+    {
+      "opportunity": "European market expansion",
+      "market_potential": "$120 billion total addressable market",
+      "competitive_intensity": "High",
+      "resource_requirements": "Medium-High",
+      "recommendation": "Strategic focus for next 12-18 months"
+    },
+    {
+      "opportunity": "Healthcare vertical specialization",
+      "market_potential": "$78 billion with 12.3% growth",
+      "competitive_intensity": "Medium-Low",
+      "resource_requirements": "Medium",
+      "recommendation": "Develop specialized healthcare compliance features"
+    }
+  ]
+} 

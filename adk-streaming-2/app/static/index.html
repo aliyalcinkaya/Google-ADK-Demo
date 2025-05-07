@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendo AI - Agent Demo</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-black min-h-screen p-4 md:p-8">
+    <div class="max-w-2xl mx-auto bg-gray-900 rounded-lg shadow-md p-6">
+      <h1 class="text-2xl font-bold text-center text-white mb-6">Vendo AI - Agent Demo</h1>
+      
+      <div id="messages" 
+           class="h-96 overflow-y-auto p-4 mb-4 bg-gray-800 border border-gray-700 rounded-lg">
+        <!-- Messages will appear here -->
+      </div>
+
+      <form id="messageForm" class="flex gap-2">
+        <input type="text" 
+               id="message" 
+               name="message" 
+               class="flex-1 px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+               placeholder="Type your message here..."
+               autocomplete="off" />
+        <button type="submit" 
+                id="sendButton" 
+                disabled 
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+          Send
+        </button>
+      </form>
+      
+      <div class="text-xs text-gray-400 mt-4 text-center">
+        <p id="connection-status">Connecting to server...</p>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // Connect the server with a WebSocket connection
+    const sessionId = Math.random().toString().substring(10);
+    const ws_url = "ws://" + window.location.host + "/ws/" + sessionId;
+    let ws = new WebSocket(ws_url);
+
+    // Get DOM elements
+    const messageForm = document.getElementById("messageForm");
+    const messageInput = document.getElementById("message");
+    const messagesDiv = document.getElementById("messages");
+    const connectionStatus = document.getElementById("connection-status");
+    let currentMessageId = null;
+    let currentAgent = "default";
+
+    // WebSocket handlers
+    function addWebSocketHandlers(ws) {
+      ws.onopen = function () {
+        console.log("WebSocket connection opened.");
+        document.getElementById("sendButton").disabled = false;
+        connectionStatus.textContent = "Connected to server";
+        connectionStatus.className = "text-green-500";
+        // Initial message
+        const welcomeMessage = document.createElement("div");
+        welcomeMessage.className = "p-3 rounded-lg mb-2 text-center text-green-500";
+        welcomeMessage.textContent = "Connection established. Start a conversation!";
+        messagesDiv.appendChild(welcomeMessage);
+        addSubmitHandler(this);
+      };
+
+      ws.onmessage = function (event) {
+        // Parse the incoming message
+        const packet = JSON.parse(event.data);
+        console.log(packet);
+
+        // Check for token limit error
+        if (packet.error && packet.error.includes("token count") && packet.error.includes("exceeds the maximum")) {
+          const errorMessage = document.createElement("div");
+          errorMessage.className = "bg-red-900 p-3 rounded-lg mb-2 text-white break-words";
+          errorMessage.innerHTML = `<strong>Error:</strong> Your Mixpanel query returned too much data for the AI to process. <br><br>
+            Please try to limit your query by:
+            <ul class="list-disc pl-5 mt-2">
+              <li>Reducing the date range</li>
+              <li>Filtering for specific events only</li>
+              <li>Limiting the number of user profiles</li>
+              <li>Adding more specific filtering criteria</li>
+            </ul>`;
+          messagesDiv.appendChild(errorMessage);
+          messagesDiv.scrollTop = messagesDiv.scrollHeight;
+          currentMessageId = null;
+          currentAgent = "default";
+          return;
+        }
+
+        // Check if the turn is complete
+        if (packet.turn_complete && packet.turn_complete == true) {
+          currentMessageId = null;
+          currentAgent = "default";
+          return;
+        }
+
+        // Check if this is a message from the data_planner agent
+        if (packet.agent && packet.agent === "data_planner") {
+          currentAgent = "data_planner";
+        }
+        
+        // Handle new message creation
+        if (currentMessageId == null) {
+          currentMessageId = Math.random().toString(36).substring(7);
+          const message = document.createElement("div");
+          message.id = currentMessageId;
+          
+          // Apply different styling based on the agent
+          if (currentAgent === "data_planner") {
+            message.className = "bg-indigo-900 p-3 rounded-lg mb-2 text-gray-100 break-words border-l-4 border-indigo-400";
+            
+            // Create a header for the data planner
+            const header = document.createElement("div");
+            header.className = "text-indigo-300 font-semibold mb-2 text-sm";
+            header.textContent = "Data Planner Agent";
+            message.appendChild(header);
+            
+            // Create a container for the content
+            const contentDiv = document.createElement("div");
+            contentDiv.id = currentMessageId + "-content";
+            message.appendChild(contentDiv);
+          } else {
+            message.className = "bg-gray-700 p-3 rounded-lg mb-2 text-gray-200 break-words";
+          }
+          
+          // Append the message element to the messagesDiv
+          messagesDiv.appendChild(message);
+        }
+
+        // Add message text to the existing message element
+        if (currentAgent === "data_planner") {
+          const contentDiv = document.getElementById(currentMessageId + "-content");
+          
+          // Try to parse the message as event tracking details
+          try {
+            if (packet.message.includes("Event name") || packet.message.includes("event properties")) {
+              // Format tracking requirements
+              if (contentDiv.querySelector('.event-tracking') === null) {
+                const trackingDiv = document.createElement("div");
+                trackingDiv.className = "event-tracking bg-indigo-800 p-2 rounded mt-2";
+                contentDiv.appendChild(trackingDiv);
+              }
+              
+              const trackingDiv = contentDiv.querySelector('.event-tracking');
+              
+              // Format property lines nicely
+              if (packet.message.startsWith("-")) {
+                const propertyLine = document.createElement("div");
+                propertyLine.className = "ml-4 text-indigo-100";
+                propertyLine.textContent = packet.message;
+                trackingDiv.appendChild(propertyLine);
+              } else {
+                const line = document.createElement("div");
+                line.className = "font-semibold text-indigo-200";
+                line.textContent = packet.message;
+                trackingDiv.appendChild(line);
+              }
+            } else {
+              contentDiv.textContent += packet.message;
+            }
+          } catch (e) {
+            // Fallback to simple append if parsing fails
+            contentDiv.textContent += packet.message;
+          }
+        } else {
+          const message = document.getElementById(currentMessageId);
+          message.textContent += packet.message;
+        }
+
+        // Scroll down to the bottom of the messagesDiv
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      };
+
+      // When the connection is closed, try reconnecting
+      ws.onclose = function () {
+        console.log("WebSocket connection closed.");
+        document.getElementById("sendButton").disabled = true;
+        connectionStatus.textContent = "Disconnected. Trying to reconnect...";
+        connectionStatus.className = "text-red-500";
+        setTimeout(function () {
+          console.log("Reconnecting...");
+          connectionStatus.textContent = "Reconnecting...";
+          connectionStatus.className = "text-yellow-500";
+          ws = new WebSocket(ws_url);
+          addWebSocketHandlers(ws);
+        }, 5000);
+      };
+
+      ws.onerror = function (e) {
+        console.log("WebSocket error: ", e);
+        connectionStatus.textContent = "Connection error!";
+        connectionStatus.className = "text-red-500";
+      };
+    }
+    addWebSocketHandlers(ws);
+
+    // Add submit handler to the form
+    function addSubmitHandler(ws) {
+      messageForm.onsubmit = function (e) {
+        e.preventDefault();
+        const message = messageInput.value;
+        if (message) {
+          const userMessage = document.createElement("div");
+          userMessage.className = "bg-white text-black p-3 rounded-lg mb-2 ml-auto max-w-[80%] break-words";
+          userMessage.textContent = message;
+          messagesDiv.appendChild(userMessage);
+          ws.send(message);
+          messageInput.value = "";
+          // Scroll down to the bottom of the messagesDiv
+          messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        return false;
+      };
+    }
+  </script>
+</html>
