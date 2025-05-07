@@ -14,10 +14,11 @@ import gzip
 from .prompts import (
     SELECT_EVENT_AGENT_INSTRUCTION,
     QUERY_RUNNER_AGENT_INSTRUCTION,
-    RESEARCHER_AGENT_INSTRUCTION,
+    MIXPANEL_QUERY_AGENT_INSTRUCTION,
     DATA_PLANNER_AGENT_INSTRUCTION,
     ROOT_AGENT_INSTRUCTION,
     GOOGLE_SEARCH_AGENT_INSTRUCTION,
+    GEO_PERFORMANCE_AGENT_INSTRUCTION,
 )
 
 
@@ -27,20 +28,20 @@ from .prompts import (
 # moved Mixpanel tool to its own file
 from .mixpanel_tools import query_mixpanel
 
-# from .marketing effectiveness import xxx
+# TODO: Suraj to update import langchain for geo_performance_agent
 
 # ────────────────────────────────────────────────────────────────────────────
 # 2. Sub-agents (optional - each can focus on a single sub-task)
 # ────────────────────────────────────────────────────────────────────────────
 
-marketing_effectiveness_agent = Agent(
-    name="marketing_effectiveness_agent",
+geo_performance_agent = Agent(
+    name="geo_performance_agent",
     model="gemini-2.0-flash",
-    description="Chooses the correct Mixpanel events based on the user's goal.",
-    instruction=SELECT_EVENT_AGENT_INSTRUCTION
+    description="Chooses the research parameters for geo performance",
+    instruction=GEO_PERFORMANCE_AGENT_INSTRUCTION
+    # TODO: Suraj to update: tools=[langchain]
+
 )
-
-
 
 # this is the agent that selects the correct Mixpanel events based on the user's goal.
 # To do: replace this with an agent that can do this for BQ
@@ -58,23 +59,23 @@ query_runner_agent = Agent(
     description="Builds & executes the Mixpanel query, returns raw rows.",
     instruction=QUERY_RUNNER_AGENT_INSTRUCTION,
     tools=[query_mixpanel],
-    output_key="mixpanel_rows",
+
 )
 
 # researcher agent understand the clients research request, selects the research agent tool 
 # and plans the parameters of the research 
-researcher = Agent(
-    name="researcher",
+mixpanel_query_agent = Agent(
+    name="mixpanel_query_agent",
     model="gemini-2.0-flash",
     description="Plans the parameters of the research",
-    instruction=RESEARCHER_AGENT_INSTRUCTION,
+    instruction=MIXPANEL_QUERY_AGENT_INSTRUCTION,
     tools=[
         AgentTool(agent=select_event_agent),
         AgentTool(agent=query_runner_agent)
     ]
 )
 
-# this is a demo agent to test highlevel routing capabilities.
+# data planner agent
 data_planner = Agent(
     name="data_planner",
     model="gemini-2.0-flash",
@@ -82,10 +83,10 @@ data_planner = Agent(
     instruction=DATA_PLANNER_AGENT_INSTRUCTION
 )
 
-# this is a demo agent to test highlevel routing capabilities.
+# google search agent
 google_search = Agent(
     model='gemini-2.0-flash-exp',
-    name='SearchAgent',
+    name='google_search',
     instruction=GOOGLE_SEARCH_AGENT_INSTRUCTION,
     tools=[google_search]
 )
@@ -99,9 +100,12 @@ root_agent = Agent(
     model="gemini-2.0-flash",
     description="Job is to route the user's request to the right sub-agent.",
     instruction=ROOT_AGENT_INSTRUCTION,
+    sub_agents=[
+        mixpanel_query_agent,
+        geo_performance_agent,
+    ],
     tools=[
         AgentTool(agent=google_search), 
-        AgentTool(agent=researcher),
         AgentTool(agent=data_planner),
     ]
 )
