@@ -1,0 +1,195 @@
+Table Name,Column Name,Description,Sample Value
+Account Created,$insert_id,"A unique identifier for the event, used for deduplication. (column from 'Account Created' table, used to represent '$insert_id' in data).",c7dc3b7df8b902b0d34f28db8b9c4bd8
+Account Created,$source,"The source of where the data is coming from. (column from 'Account Created' table, used to represent '$source' in data).",Vendo - Stripe
+Account Created,distinct_id,"The unique identifier of the user. (column from 'Account Created' table, used to represent 'distinct_id' in data).",12345
+Account Created,$email,"The user's email address. (column from 'Account Created' table, used to represent '$email' in data).",user@example.com
+Account Created,stripe_customer_id,"The Stripe customer ID. (column from 'Account Created' table, used to represent 'stripe_customer_id' in data).",cus_1234567890
+Account Created,ip,"IP address of the user (set to '0' by default). (column from 'Account Created' table, used to represent 'ip' in data).",0
+Account Created,time,"The timestamp of the event in milliseconds. (column from 'Account Created' table, used to represent 'time' in data).",1674578999000
+Account Created,_timestamp,"The timestamp of the event in milliseconds (same as time). (column from 'Account Created' table, used to represent '_timestamp' in data).",1674578999000
+$user,$ignore_time,"No description provided. (column from '$user' table, used to represent '$ignore_time' in data).",
+$user,$distinct_id,"The unique identifier for the user (column from '$user' table, used to represent '$distinct_id' in data).",12345
+$user,$created,"The creation date of the customer profile (column from '$user' table, used to represent '$created' in data).",2025-01-01T12:00:00Z
+$user,stripe_customer_id,"The unique customer ID from Stripe (column from '$user' table, used to represent 'stripe_customer_id' in data).",cus_12345
+$user,$email,"The email address associated with the customer (column from '$user' table, used to represent '$email' in data).",user@example.com
+$user,ip,"The IP address of the customer (column from '$user' table, used to represent 'ip' in data).",0
+Payment Received,$insert_id,"A unique identifier for the event, used for deduplication. (column from 'Payment Received' table, used to represent '$insert_id' in data).",c7dc3b7df8b902b0d34f28db8b9c4bd8
+Payment Received,$source,"The source of the event. (column from 'Payment Received' table, used to represent '$source' in data).",Vendo - Stripe
+Payment Received,distinct_id,"The unique identifier of the user who made the payment. (column from 'Payment Received' table, used to represent 'distinct_id' in data).",12345
+Payment Received,time,"The timestamp when the payment was received. (column from 'Payment Received' table, used to represent 'time' in data).",1625077753000
+Payment Received,_timestamp,"The timestamp of when the event was logged. (column from 'Payment Received' table, used to represent '_timestamp' in data).",1625077753000
+Payment Received,stripe_customer_id,"The Stripe customer ID associated with the payment. (column from 'Payment Received' table, used to represent 'stripe_customer_id' in data).",cus_JhLFiLp8Ymz77B
+Payment Received,$email,"The email address associated with the payment. (column from 'Payment Received' table, used to represent '$email' in data).",customer@example.com
+Payment Received,charge_id,"The unique identifier for the charge on Stripe. (column from 'Payment Received' table, used to represent 'charge_id' in data).",ch_1JXkeu2eZvKYlo2CWsNAlVh6
+Payment Received,customer_payment_currency,"The currency used by the customer to make the payment. (column from 'Payment Received' table, used to represent 'customer_payment_currency' in data).",USD
+Payment Received,customer_payment_amount,"The amount paid by the customer in their currency. (column from 'Payment Received' table, used to represent 'customer_payment_amount' in data).",100.0
+Payment Received,stripe_currency,"The currency in which the payment was processed on Stripe. (column from 'Payment Received' table, used to represent 'stripe_currency' in data).",USD
+Payment Received,stripe_payment_amount,"The amount processed by Stripe after any fees in the Stripe currency. (column from 'Payment Received' table, used to represent 'stripe_payment_amount' in data).",97.5
+Payment Received,stripe_net_amount,"The net amount received by the seller after Stripe's fees. (column from 'Payment Received' table, used to represent 'stripe_net_amount' in data).",95.0
+Payment Received,stripe_processing_fees,"The fees Stripe charged for processing the payment. (column from 'Payment Received' table, used to represent 'stripe_processing_fees' in data).",2.5
+Payment Received,invoice_id,"The unique identifier for the invoice related to the payment. (column from 'Payment Received' table, used to represent 'invoice_id' in data).",inv_1JXkeu2eZvKYlo2CVrFNi3z0
+Payment Received,description,"A description of the payment or invoice. (column from 'Payment Received' table, used to represent 'description' in data).",Payment for subscription
+Payment Received,outcome_seller_message,"A message from the seller regarding the outcome of the payment. (column from 'Payment Received' table, used to represent 'outcome_seller_message' in data).",Payment successful
+Payment Received,subscription_id,"The ID of the subscription associated with the payment. (column from 'Payment Received' table, used to represent 'subscription_id' in data).",sub_1JXkeu2eZvKYlo2CSvImv9R9
+Payment Received,subscription_payment_number,"The payment number within the subscription cycle. (column from 'Payment Received' table, used to represent 'subscription_payment_number' in data).",1
+Payment Received,installment_number,"The installment number for payment of a product without a subscription. (column from 'Payment Received' table, used to represent 'installment_number' in data).",1
+Payment Received,invoice_items,"The items associated with the invoice, such as product names or services. (column from 'Payment Received' table, used to represent 'invoice_items' in data).",
+Payment Received,ip,"The IP address from which the payment was made. (column from 'Payment Received' table, used to represent 'ip' in data).",0
+Payment Received,reporting_currency,"The reporting currency, if available. (column from 'Payment Received' table, used to represent 'reporting_currency' in data).",USD
+Payment Received,reporting_payment_amount,"The payment amount in the reporting currency. (column from 'Payment Received' table, used to represent 'reporting_payment_amount' in data).",97.5
+Payment Received,reporting_processing_fees,"The processing fees in the reporting currency. (column from 'Payment Received' table, used to represent 'reporting_processing_fees' in data).",2.5
+Payment Received,reporting_net_amount,"The net amount in the reporting currency. (column from 'Payment Received' table, used to represent 'reporting_net_amount' in data).",95.0
+Payment Failed,$insert_id,"A unique identifier for the event, used for deduplication. (column from 'Payment Failed' table, used to represent '$insert_id' in data).",c7dc3b7df8b902b0d34f28db8b9c4bd8
+Payment Failed,$source,"The source of the event. (column from 'Payment Failed' table, used to represent '$source' in data).",Vendo - Stripe
+Payment Failed,distinct_id,"The unique identifier of the user who attempted the payment. (column from 'Payment Failed' table, used to represent 'distinct_id' in data).",12345
+Payment Failed,time,"The timestamp when the payment failure occurred. (column from 'Payment Failed' table, used to represent 'time' in data).",1625077753000
+Payment Failed,_timestamp,"The timestamp when the event was logged. (column from 'Payment Failed' table, used to represent '_timestamp' in data).",1625077753000
+Payment Failed,stripe_customer_id,"The Stripe customer ID associated with the failed payment. (column from 'Payment Failed' table, used to represent 'stripe_customer_id' in data).",cus_JhLFiLp8Ymz77B
+Payment Failed,$email,"The email address associated with the payment attempt. (column from 'Payment Failed' table, used to represent '$email' in data).",customer@example.com
+Payment Failed,charge_id,"The unique identifier for the charge attempt on Stripe. (column from 'Payment Failed' table, used to represent 'charge_id' in data).",ch_1JXkeu2eZvKYlo2CWsNAlVh6
+Payment Failed,customer_payment_currency,"The currency of the payment attempted by the customer. (column from 'Payment Failed' table, used to represent 'customer_payment_currency' in data).",USD
+Payment Failed,customer_payment_amount,"The amount the customer attempted to pay. (column from 'Payment Failed' table, used to represent 'customer_payment_amount' in data).",100.0
+Payment Failed,stripe_currency,"The currency used for the payment attempt on Stripe. (column from 'Payment Failed' table, used to represent 'stripe_currency' in data).",USD
+Payment Failed,stripe_payment_amount,"The amount Stripe processed for the payment attempt. (column from 'Payment Failed' table, used to represent 'stripe_payment_amount' in data).",100.0
+Payment Failed,stripe_net_amount,"The net amount Stripe processed after fees for the payment attempt. (column from 'Payment Failed' table, used to represent 'stripe_net_amount' in data).",95.0
+Payment Failed,stripe_processing_fees,"The processing fees charged by Stripe for the payment attempt. (column from 'Payment Failed' table, used to represent 'stripe_processing_fees' in data).",5.0
+Payment Failed,invoice_id,"The unique identifier for the invoice associated with the failed payment. (column from 'Payment Failed' table, used to represent 'invoice_id' in data).",inv_1JXkeu2eZvKYlo2CVrFNi3z0
+Payment Failed,description,"A description or label related to the failed payment. (column from 'Payment Failed' table, used to represent 'description' in data).",Payment attempt failed due to insufficient funds.
+Payment Failed,outcome_seller_message,"A message explaining the outcome of the payment attempt. (column from 'Payment Failed' table, used to represent 'outcome_seller_message' in data).",Payment failed due to insufficient funds.
+Payment Failed,invoice_items,"The list of items included in the invoice for the payment attempt. (column from 'Payment Failed' table, used to represent 'invoice_items' in data).","['Item A', 'Item B']"
+Payment Failed,ip,"The IP address from which the payment attempt was made. (column from 'Payment Failed' table, used to represent 'ip' in data).",0
+Payment Failed,reporting_currency,"The currency used for reporting, if applicable. (column from 'Payment Failed' table, used to represent 'reporting_currency' in data).",USD
+Payment Failed,reporting_payment_amount,"The reported amount of the payment, adjusted for the exchange rate. (column from 'Payment Failed' table, used to represent 'reporting_payment_amount' in data).",100.0
+Payment Failed,reporting_processing_fees,"The reported processing fees for the payment attempt, adjusted for the exchange rate. (column from 'Payment Failed' table, used to represent 'reporting_processing_fees' in data).",5.0
+Payment Failed,reporting_net_amount,"The reported net amount processed for the payment, adjusted for the exchange rate. (column from 'Payment Failed' table, used to represent 'reporting_net_amount' in data).",95.0
+Payment Refunded,$insert_id,"A unique identifier for the event, used for deduplication. (column from 'Payment Refunded' table, used to represent '$insert_id' in data).",c7dc3b7df8b902b0d34f28db8b9c4bd8
+Payment Refunded,$source,"The source of the event. (column from 'Payment Refunded' table, used to represent '$source' in data).",Vendo - Stripe
+Payment Refunded,distinct_id,"The unique identifier of the user who received the refund. (column from 'Payment Refunded' table, used to represent 'distinct_id' in data).",12345
+Payment Refunded,time,"The timestamp when the refund was processed. (column from 'Payment Refunded' table, used to represent 'time' in data).",1625077753000
+Payment Refunded,_timestamp,"The timestamp of when the event was logged. (column from 'Payment Refunded' table, used to represent '_timestamp' in data).",1625077753000
+Payment Refunded,stripe_customer_id,"The Stripe customer ID associated with the refund. (column from 'Payment Refunded' table, used to represent 'stripe_customer_id' in data).",cus_JhLFiLp8Ymz77B
+Payment Refunded,$email,"The email address associated with the refund. (column from 'Payment Refunded' table, used to represent '$email' in data).",customer@example.com
+Payment Refunded,charge_id,"The unique identifier for the charge on Stripe that was refunded. (column from 'Payment Refunded' table, used to represent 'charge_id' in data).",ch_1JXkeu2eZvKYlo2CWsNAlVh6
+Payment Refunded,amount,"The original amount of the charge before the refund. (column from 'Payment Refunded' table, used to represent 'amount' in data).",100.0
+Payment Refunded,currency,"The currency of the original payment. (column from 'Payment Refunded' table, used to represent 'currency' in data).",USD
+Payment Refunded,invoice_id,"The unique identifier for the invoice related to the refund. (column from 'Payment Refunded' table, used to represent 'invoice_id' in data).",inv_1JXkeu2eZvKYlo2CVrFNi3z0
+Payment Refunded,amount_refunded,"The amount refunded to the customer. (column from 'Payment Refunded' table, used to represent 'amount_refunded' in data).",50.0
+Payment Refunded,refund_reason,"The reason provided for the refund. (column from 'Payment Refunded' table, used to represent 'refund_reason' in data).",Product not as described
+Payment Refunded,ip,"The IP address from which the refund was processed. (column from 'Payment Refunded' table, used to represent 'ip' in data).",0
+Payment Received - Line Items,$insert_id,"A unique identifier for the event, used for deduplication. (column from 'Payment Received - Line Items' table, used to represent '$insert_id' in data).",c7dc3b7df8b902b0d34f28db8b9c4bd8
+Payment Received - Line Items,$source,"The source of the event. (column from 'Payment Received - Line Items' table, used to represent '$source' in data).",Vendo - Stripe
+Payment Received - Line Items,distinct_id,"The unique identifier of the user who made the payment. (column from 'Payment Received - Line Items' table, used to represent 'distinct_id' in data).",12345
+Payment Received - Line Items,time,"The timestamp when the payment was received. (column from 'Payment Received - Line Items' table, used to represent 'time' in data).",1625077753000
+Payment Received - Line Items,_timestamp,"The timestamp of when the event was logged. (column from 'Payment Received - Line Items' table, used to represent '_timestamp' in data).",1625077753000
+Payment Received - Line Items,stripe_customer_id,"The Stripe customer ID associated with the payment. (column from 'Payment Received - Line Items' table, used to represent 'stripe_customer_id' in data).",cus_JhLFiLp8Ymz77B
+Payment Received - Line Items,$email,"The email address associated with the payment. (column from 'Payment Received - Line Items' table, used to represent '$email' in data).",customer@example.com
+Payment Received - Line Items,charge_id,"The unique identifier for the charge on Stripe. (column from 'Payment Received - Line Items' table, used to represent 'charge_id' in data).",ch_1JXkeu2eZvKYlo2CWsNAlVh6
+Payment Received - Line Items,customer_payment_currency,"The currency used by the customer to make the payment. (column from 'Payment Received - Line Items' table, used to represent 'customer_payment_currency' in data).",USD
+Payment Received - Line Items,stripe_currency,"The currency in which the payment was processed on Stripe. (column from 'Payment Received - Line Items' table, used to represent 'stripe_currency' in data).",USD
+Payment Received - Line Items,invoice_id,"The unique identifier for the invoice related to the payment. (column from 'Payment Received - Line Items' table, used to represent 'invoice_id' in data).",inv_1JXkeu2eZvKYlo2CVrFNi3z0
+Payment Received - Line Items,invoice_description,"A description of the payment or invoice. (column from 'Payment Received - Line Items' table, used to represent 'invoice_description' in data).",Payment for subscription
+Payment Received - Line Items,invoice_item_description,"A description of the invoice line item. (column from 'Payment Received - Line Items' table, used to represent 'invoice_item_description' in data).",Product XYZ
+Payment Received - Line Items,outcome_seller_message,"A message from the seller regarding the outcome of the payment. (column from 'Payment Received - Line Items' table, used to represent 'outcome_seller_message' in data).",Payment successful
+Payment Received - Line Items,subscription_id,"The ID of the subscription associated with the payment. (column from 'Payment Received - Line Items' table, used to represent 'subscription_id' in data).",sub_1JXkeu2eZvKYlo2CSvImv9R9
+Payment Received - Line Items,subscription_payment_number,"The payment number within the subscription cycle. (column from 'Payment Received - Line Items' table, used to represent 'subscription_payment_number' in data).",1
+Payment Received - Line Items,installment_number,"The installment number for payment of a product without a subscription. (column from 'Payment Received - Line Items' table, used to represent 'installment_number' in data).",1
+Payment Received - Line Items,plan_id,"The ID of the plan. (column from 'Payment Received - Line Items' table, used to represent 'plan_id' in data).",plan_123
+Payment Received - Line Items,plan_name,"The name of the plan. (column from 'Payment Received - Line Items' table, used to represent 'plan_name' in data).",Basic Plan
+Payment Received - Line Items,plan_nickname,"The nickname of the plan. (column from 'Payment Received - Line Items' table, used to represent 'plan_nickname' in data).",Starter
+Payment Received - Line Items,plan_product_id,"The product ID of the plan. (column from 'Payment Received - Line Items' table, used to represent 'plan_product_id' in data).",prod_ABC
+Payment Received - Line Items,plan_interval,"The interval of the plan (e.g., month, year). (column from 'Payment Received - Line Items' table, used to represent 'plan_interval' in data).",month
+Payment Received - Line Items,plan_interval_count,"The count of intervals for the plan. (column from 'Payment Received - Line Items' table, used to represent 'plan_interval_count' in data).",1
+Payment Received - Line Items,plan_currency,"Currency of the plan. (column from 'Payment Received - Line Items' table, used to represent 'plan_currency' in data).",USD
+Payment Received - Line Items,invoice_item_id,"The ID of the invoice item. (column from 'Payment Received - Line Items' table, used to represent 'invoice_item_id' in data).",item_456
+Payment Received - Line Items,product_price,"Price of the product. (column from 'Payment Received - Line Items' table, used to represent 'product_price' in data).",29.99
+Payment Received - Line Items,product_type,"Type of the product. (column from 'Payment Received - Line Items' table, used to represent 'product_type' in data).",subscription
+Payment Received - Line Items,product_quantity,"Quantity of the product. (column from 'Payment Received - Line Items' table, used to represent 'product_quantity' in data).",1
+Payment Received - Line Items,ip,"The IP address from which the payment was made. (column from 'Payment Received - Line Items' table, used to represent 'ip' in data).",0
+MRR,$insert_id,"A unique identifier for the event, used for deduplication. (column from 'MRR' table, used to represent '$insert_id' in data).",c7dc3b7df8b902b0d34f28db8b9c4bd8
+MRR,$source,"The source of where the data is coming from. (column from 'MRR' table, used to represent '$source' in data).",Vendo - Stripe
+MRR,distinct_id,"The unique identifier of the user. (column from 'MRR' table, used to represent 'distinct_id' in data).",12345
+MRR,$email,"The user's email address. (column from 'MRR' table, used to represent '$email' in data).",user@example.com
+MRR,stripe_customer_id,"The Stripe customer ID. (column from 'MRR' table, used to represent 'stripe_customer_id' in data).",cus_1234567890
+MRR,charge_id,"The unique charge identifier. (column from 'MRR' table, used to represent 'charge_id' in data).",ch_1234567890
+MRR,invoice_id,"The invoice ID associated with the charge. (column from 'MRR' table, used to represent 'invoice_id' in data).",inv_1234567890
+MRR,plan_id,"The ID of the subscription plan. (column from 'MRR' table, used to represent 'plan_id' in data).",plan_1234567890
+MRR,plan_nickname,"The nickname of the subscription plan. (column from 'MRR' table, used to represent 'plan_nickname' in data).",Basic Plan
+MRR,plan_product_id,"The product ID associated with the plan. (column from 'MRR' table, used to represent 'plan_product_id' in data).",prod_1234567890
+MRR,plan_interval,"The billing interval for the subscription plan. (column from 'MRR' table, used to represent 'plan_interval' in data).",monthly
+MRR,plan_interval_count,"The number of intervals in a subscription period. (column from 'MRR' table, used to represent 'plan_interval_count' in data).",1
+MRR,plan_currency,"The currency of the subscription plan. (column from 'MRR' table, used to represent 'plan_currency' in data).",USD
+MRR,mrr_amount,"The amount of monthly recurring revenue (MRR). (column from 'MRR' table, used to represent 'mrr_amount' in data).",29.99
+MRR,reporting_mrr_amount,"The amount of monthly recurring revenue (MRR) in the reporting currency. (column from 'MRR' table, used to represent 'reporting_mrr_amount' in data).",97.5
+MRR,payment_date,"The payment date. (column from 'MRR' table, used to represent 'payment_date' in data).",2025-01-01T12:00:00Z
+MRR,ip,"IP address of the user (set to '0' by default). (column from 'MRR' table, used to represent 'ip' in data).",0
+MRR,time,"The timestamp of the event in milliseconds. (column from 'MRR' table, used to represent 'time' in data).",1674578999000
+MRR,_timestamp,"The timestamp of the event in milliseconds (same as time). (column from 'MRR' table, used to represent '_timestamp' in data).",1674578999000
+$user,$ignore_time,"No description provided. (column from '$user' table, used to represent '$ignore_time' in data).",
+$user,$distinct_id,"The unique identifier for the user (column from '$user' table, used to represent '$distinct_id' in data).",12345
+$user,ltv,"The lifetime value of the user in their associated currency (column from '$user' table, used to represent 'ltv' in data).",199.95
+$user,invoices_paid,"The total number of invoices paid by the user (column from '$user' table, used to represent 'invoices_paid' in data).",5
+$user,stripe_currency,"The currency used in Stripe for the user’s transactions (column from '$user' table, used to represent 'stripe_currency' in data).",USD
+Ad Data,$ad_platform,"The name of the advertising platform. (column from 'Ad Data' table, used to represent '$ad_platform' in data).","Google Ads, Meta Ads"
+Ad Data,$insert_id,"A unique identifier for the event, used for deduplication. (column from 'Ad Data' table, used to represent '$insert_id' in data).",49b71cd2-295b-476a-a345-0eb50bd13b57
+Ad Data,$region,"The region (state or province) of the user parsed from the IP property or the Latitude and Longitude properties. (column from 'Ad Data' table, used to represent '$region' in data).",
+Ad Data,$source,"Name of the source where the data syncs. This will be Vendo data. (column from 'Ad Data' table, used to represent '$source' in data).",Vendo Data
+Ad Data,account_id,"id of the ad account (column from 'Ad Data' table, used to represent 'account_id' in data).",23204565132
+Ad Data,account_name,"name of the ad account, as displayed via API (column from 'Ad Data' table, used to represent 'account_name' in data).",Vendo Ads Account
+Ad Data,actions,"Meta Ads actions List of objects (column from 'Ad Data' table, used to represent 'actions' in data).",
+Ad Data,ad_id,"ID of the ad set by the advertising platform. (column from 'Ad Data' table, used to represent 'ad_id' in data).",687954321
+Ad Data,ad_name," (column from 'Ad Data' table, used to represent 'ad_name' in data).",
+Ad Data,adgroup_id,"ID of the ad group set by the advertising platform. (column from 'Ad Data' table, used to represent 'adgroup_id' in data).",46581324877
+Ad Data,adgroup_name,"The name of the ad group as it appears in the advertising platform. (column from 'Ad Data' table, used to represent 'adgroup_name' in data).",2022 - Search - AF7 & FCA
+Ad Data,adset_id,"ID of the adset as set by the advertising platform. (column from 'Ad Data' table, used to represent 'adset_id' in data).",
+Ad Data,adset_name,"The name of the ad group as it appears in the advertising platform. (column from 'Ad Data' table, used to represent 'adset_name' in data).",
+Ad Data,campaign_advertising_channel_type,"The type of advertising channel. (column from 'Ad Data' table, used to represent 'campaign_advertising_channel_type' in data).",Search
+Ad Data,campaign_id,"ID of the campaign set by the advertising platform. (column from 'Ad Data' table, used to represent 'campaign_id' in data).",1234567890
+Ad Data,campaign_name,"Name of the campaign as it appears in the advertising platform. (column from 'Ad Data' table, used to represent 'campaign_name' in data).",Summer Sale Campaign
+Ad Data,clicks,"Number of clicks the ad received. (column from 'Ad Data' table, used to represent 'clicks' in data).",100
+Ad Data,conversion_value,"The value associated with the conversion (column from 'Ad Data' table, used to represent 'conversion_value' in data).",
+Ad Data,conversions,"Number of conversions (column from 'Ad Data' table, used to represent 'conversions' in data).",
+Ad Data,cost_reporting,"The advertsing cost converted to the reporting currency in Mixpanel (column from 'Ad Data' table, used to represent 'cost_reporting' in data).",
+Ad Data,cost_source,"The advertising cost in the source currency of the advertising platform. (column from 'Ad Data' table, used to represent 'cost_source' in data).",
+Ad Data,currency_reporting,"The reporting currency in Mixpanel. (column from 'Ad Data' table, used to represent 'currency_reporting' in data).",
+Ad Data,currency_source,"The source currency of the advertising platform. (column from 'Ad Data' table, used to represent 'currency_source' in data).",
+Ad Data,device_category,"The device category of the ad. (column from 'Ad Data' table, used to represent 'device_category' in data).",
+Ad Data,impressions,"Number of impressions the ad received. (column from 'Ad Data' table, used to represent 'impressions' in data).",1000
+Ad Data,job_id,"The ID of the job that created the ad. This is created by Vendo. Used for data verification purposes. (column from 'Ad Data' table, used to represent 'job_id' in data).",
+Ad Data,keyword_text,"The value of the keyword text. (column from 'Ad Data' table, used to represent 'keyword_text' in data).","nike_air, red_shoes"
+Ad Data,keyword_ad_group_criterion,"The criterion associated with the keyword ad group (column from 'Ad Data' table, used to represent 'keyword_ad_group_criterion' in data).",
+Ad Data,keyword_match_type,"The match type of the keyword (exact, phrase, broad) (column from 'Ad Data' table, used to represent 'keyword_match_type' in data).",
+Ad Data,language,"The language setting for the ad (column from 'Ad Data' table, used to represent 'language' in data).",
+Ad Data,platform_position,"The position of the ad on the platform (column from 'Ad Data' table, used to represent 'platform_position' in data).",
+Ad Data,product_id,"The product item ID for Shopping campaigns. (column from 'Ad Data' table, used to represent 'product_id' in data).",687954321
+Ad Data,publisher_platform,"The platform of the ad. Googles Ads. (column from 'Ad Data' table, used to represent 'publisher_platform' in data).","search, youtube, search partners"
+Ad Data,utm_campaign,"The value of the UTM campaign parameter. (column from 'Ad Data' table, used to represent 'utm_campaign' in data).",campaign x
+Ad Data,utm_content,"The value of the UTM content parameter. (column from 'Ad Data' table, used to represent 'utm_content' in data).",october_promo
+Ad Data,utm_medium,"The value of the UTM medium parameter. (column from 'Ad Data' table, used to represent 'utm_medium' in data).",cpc
+Ad Data,utm_source,"The value of the UTM source parameter. (column from 'Ad Data' table, used to represent 'utm_source' in data).",facebook
+Ad Data,utm_term,"The value of the UTM term parameter. (column from 'Ad Data' table, used to represent 'utm_term' in data).","nike_air, red_shoes"
+Ad Data,vendo_tracking_version,"The version of Vendo tracking being used (column from 'Ad Data' table, used to represent 'vendo_tracking_version' in data).",
+Ad Geo Data,$ad_platform,"The name of the advertising platform. (column from 'Ad Geo Data' table, used to represent '$ad_platform' in data).","Google Ads, Meta Ads"
+Ad Geo Data,$insert_id,"A unique identifier for the event, used for deduplication. (column from 'Ad Geo Data' table, used to represent '$insert_id' in data).",49b71cd2-295b-476a-a345-0eb50bd13b57
+Ad Geo Data,$region,"The region (state or province) of the user parsed from the IP property or the Latitude and Longitude properties. (column from 'Ad Geo Data' table, used to represent '$region' in data).",
+Ad Geo Data,$source,"Name of the source where the data syncs. This will be Vendo data. (column from 'Ad Geo Data' table, used to represent '$source' in data).",Vendo Data
+Ad Geo Data,account_id,"id of the ad account (column from 'Ad Geo Data' table, used to represent 'account_id' in data).",23204565132
+Ad Geo Data,account_name,"name of the ad account, as displayed via API (column from 'Ad Geo Data' table, used to represent 'account_name' in data).",Vendo Ads Account
+Ad Geo Data,campaign_advertising_channel_type,"The type of advertising channel. (column from 'Ad Geo Data' table, used to represent 'campaign_advertising_channel_type' in data).",Search
+Ad Geo Data,campaign_id,"ID of the campaign set by the advertising platform. (column from 'Ad Geo Data' table, used to represent 'campaign_id' in data).",1234567890
+Ad Geo Data,campaign_name,"Name of the campaign as it appears in the advertising platform. (column from 'Ad Geo Data' table, used to represent 'campaign_name' in data).",Summer Sale Campaign
+Ad Geo Data,clicks,"Number of clicks the ad received. (column from 'Ad Geo Data' table, used to represent 'clicks' in data).",100
+Ad Geo Data,conversion_value,"The value associated with the conversion (column from 'Ad Geo Data' table, used to represent 'conversion_value' in data).",500
+Ad Geo Data,conversions,"Number of conversions (column from 'Ad Geo Data' table, used to represent 'conversions' in data).",10
+Ad Geo Data,cost_reporting,"The advertsing cost converted to the reporting currency in Mixpanel (column from 'Ad Geo Data' table, used to represent 'cost_reporting' in data).",
+Ad Geo Data,cost_source,"The advertising cost in the source currency of the advertising platform. (column from 'Ad Geo Data' table, used to represent 'cost_source' in data).",
+Ad Geo Data,currency_reporting,"The reporting currency in Mixpanel. (column from 'Ad Geo Data' table, used to represent 'currency_reporting' in data).",AUD
+Ad Geo Data,currency_source,"The source currency of the advertising platform. (column from 'Ad Geo Data' table, used to represent 'currency_source' in data).",AUD
+Ad Geo Data,device_category,"The device category of the ad. (column from 'Ad Geo Data' table, used to represent 'device_category' in data).",
+Ad Geo Data,impressions,"Number of impressions the ad received. (column from 'Ad Geo Data' table, used to represent 'impressions' in data).",1000
+Ad Geo Data,job_id,"The ID of the job that created the ad. This is created by Vendo. Used for data verification purposes. (column from 'Ad Geo Data' table, used to represent 'job_id' in data).",
+Ad Geo Data,utm_campaign,"The value of the UTM campaign parameter. (column from 'Ad Geo Data' table, used to represent 'utm_campaign' in data).",campaign x
+Ad Geo Data,utm_content,"The value of the UTM content parameter. (column from 'Ad Geo Data' table, used to represent 'utm_content' in data).",october_promo
+Ad Geo Data,utm_medium,"The value of the UTM medium parameter. (column from 'Ad Geo Data' table, used to represent 'utm_medium' in data).",cpc
+Ad Geo Data,utm_source,"The value of the UTM source parameter. (column from 'Ad Geo Data' table, used to represent 'utm_source' in data).",facebook
+Ad Geo Data,utm_term,"The value of the UTM term parameter. (column from 'Ad Geo Data' table, used to represent 'utm_term' in data).","nike_air, red_shoes"
+Ad Geo Data,vendo_tracking_version,"The version of Vendo tracking being used (column from 'Ad Geo Data' table, used to represent 'vendo_tracking_version' in data).",

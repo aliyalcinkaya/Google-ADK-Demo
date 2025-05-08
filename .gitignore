@@ -49,3 +49,9 @@ htmlcov/
 .nox/
 coverage.xml
 *.cover 
+
+# Sensitive files
+service_key.json
+*service_key*.json
+*credentials*.json
+*key*.json
